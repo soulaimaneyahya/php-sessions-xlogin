@@ -1,8 +1,8 @@
 {
     "name": "soulaimaneyh/xlogin",
     "description": "x",
-    "type": "x",
-    "license": "x",
+    "type": "project",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Soulaimaneyh\\Xlogin\\": "src/"
