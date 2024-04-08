@@ -1,0 +1,19 @@
+{
+    "name": "soulaimaneyh/xlogin",
+    "description": "x",
+    "type": "x",
+    "license": "x",
+    "autoload": {
+        "psr-4": {
+            "Soulaimaneyh\\Xlogin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Soulaimane Yahya",
+            "email": "soulaimaneyh07@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
