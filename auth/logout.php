@@ -2,7 +2,7 @@
 
 <?php
 // Check if user is logged in
-if (!isset($_SESSION["user"])) {
+if (!isset($authUser)) {
     header("Location: " . BASE_URL . "/auth/login.php");
     exit;
 }
