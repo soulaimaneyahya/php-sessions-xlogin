@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Author: Soulaimane Yahya
+ * Date: 2023-03-14
+ */
+
+/**
  * Hash a password using a secure algorithm.
  *
  * @param string $password The plain text password.

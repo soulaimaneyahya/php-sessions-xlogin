@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!count($errors)) {
         if (updateUserPassword($pdo, $authUser['id'], hashPassword($password))) {
+            // Set a flash message
+            $_SESSION['flash_message'] = "Password successfully updated.";
+
             // Reload the page
             header("Location: " . $_SERVER["PHP_SELF"]);
             exit;
@@ -31,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <hr />
 
 <h2>Change password</h2>
+
+<?php include __DIR__ . '/partials/flash-message.php'; ?>
 
 <form method="post" action="<?= $_SERVER["PHP_SELF"]; ?>">
     <input type="password" name="password" placeholder="password" />
@@ -46,7 +51,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
-
-<hr />
 
 <?php include __DIR__ . '/../partials/footer.php'; ?>

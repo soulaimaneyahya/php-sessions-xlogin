@@ -1,5 +1,10 @@
 /* form */
 li.invalid-error-message {
-    font-weight: 600;
     color: red;
+    font-weight: 600;
+}
+
+p.success-message {
+    color: green;
+    font-weight: 600;
 }

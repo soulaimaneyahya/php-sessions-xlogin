@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Author: Soulaimane Yahya
+ * Date: 2023-03-14
+ */
+
+/**
  * Find a user by their username in the database.
  *
  * @param PDO $pdo The PDO connection object.

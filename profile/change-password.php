@@ -25,6 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Regenerate CSRF token after successful update
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
+            // Set a flash message
+            $_SESSION['flash_message'] = "Password successfully updated.";
+
             // Reload the page
             header("Location: " . $_SERVER["PHP_SELF"]);
             exit;
@@ -38,6 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <hr />
 
 <h2>Change password</h2>
+
+<?php include __DIR__ . '/partials/flash-message.php'; ?>
 
 <form method="post" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf_token); ?>">
@@ -54,7 +59,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
-
-<hr />
 
 <?php include __DIR__ . '/../partials/footer.php'; ?>

@@ -25,8 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $result = $pdo->query($query);
 
         if ($result->rowCount() > 0) {
+            $name = $result->fetch(PDO::FETCH_ASSOC)['name'];
+
             // Update session user name
-            $_SESSION["user"]['name'] = $result->fetch(PDO::FETCH_ASSOC)['name'];
+            $_SESSION["user"]['name'] = $name;
+
+            // Set a flash message
+            $_SESSION['flash_message'] = "Name successfully updated.";
 
             // Reload the page
             header("Location: " . $_SERVER["PHP_SELF"]);
@@ -42,6 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <h2>Profile details</h2>
 
+<?php include __DIR__ . '/partials/flash-message.php'; ?>
+
 <form method="post" action="<?= $_SERVER["PHP_SELF"]; ?>">
     <input type="text" name="name" placeholder="name" value="<?= $authUser['name']; ?>" />
     <br>
@@ -56,7 +63,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
-
-<hr />
 
 <?php include __DIR__ . '/../partials/footer.php'; ?>

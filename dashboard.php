@@ -17,6 +17,4 @@ if (!isset($authUser)) {
 <p>Your phone is: <b><?= $authUser['phone']; ?></b</p>
 <p>Your email is: <b><?= $authUser['email']; ?></b</p>
 
-<hr />
-
 <?php include __DIR__ . '/partials/footer.php'; ?>
